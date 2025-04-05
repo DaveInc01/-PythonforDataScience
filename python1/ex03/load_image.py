@@ -14,6 +14,5 @@ def ft_load(path: str) -> list:
     if img.format.upper() != "JPG" and img.format.upper() != "JPEG":
         print("Only JPG or JPEG formats")
         return
-    rgb = np.array(img)
-    print(f"The shape of image is: {rgb.shape}")
-    return rgb
+    print(f"The shape of image is: {np.array(img).shape}")
+    return img
