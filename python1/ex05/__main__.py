@@ -1,7 +1,7 @@
-import sys
 import numpy as np
+import sys
 from load_image import ft_load
-from zoom import ft_zoom
+import pimp_image as p
 
 
 def main():
@@ -9,15 +9,18 @@ def main():
     if len(sys.argv) != 2:
         print("Usage exception: __main__.py path/to/image")
         return
-    img = ft_load(sys.argv[1])
-    if not img:
+    array = ft_load(sys.argv[1])
+    if not array:
         return
-    else:
-        print(np.array(img))
+    array = np.array(array)
     try:
-        ft_zoom(img, 400, 400)
+        p.ft_invert(array)
+        # p.ft_red(array)
+        # p.ft_green(array)
+        # p.ft_blue(array)
+        # p.ft_grey(array)
     except Exception as err:
-        print(f"zoom Exception: {err}")
+        print(f"Filter Exception: {err}")
         return
 
 
